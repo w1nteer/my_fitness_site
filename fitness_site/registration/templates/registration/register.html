@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Регистрация</title>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="{% static 'registration/css/register_login.css' %}">
+  <link rel="shortcut icon" href="{% static 'calorie_calculator/images/favicon.ico' %}" type="image/x-icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <div class="form-value">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <h2>Регистрация</h2>
+
+                    {{form.non_field_errors}}
+
+                    {% for f in form %}
+
+                    <div class="inputbox">
+
+                        {% if f.label == 'Имя' or f.label == 'Фамилия' or f.label == 'Никнейм (нужен для логина)' %}
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                        {{f}}
+                        <label for="{{f.id_for_label}}">{{f.label}}</label>
+                        {{f.errors}}
+                        
+                        {% elif f.field.widget.input_type == 'password' %}
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        {{f}}
+                        <label for="{{f.id_for_label}}">{{f.label}}</label>
+                        {{f.errors}}
+                        
+                        {% elif f.label == 'Email' %}
+                        
+                        {{f}}
+                        <label for="{{f.id_for_label}}">{{f.label}}</label>
+                        {{f.errors}}
+                        
+                        {% else %}
+                        <label for="{{f.id_for_label}}">{{f.label}}</label>
+                        <div class="input-avatar">
+                        {{f}}
+                        </div>
+                        
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit">Зарегистрироваться</button>
+                    <div class="bottom">
+                        Есть аккаунт? <a href="{% url 'login' %}">Войти в аккаунт</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+
+
+
+{% block content %}
+
+
+
+<div data-v-1c15db10="" class="section-banner --default" sectioncode="fitness"><div class="section-banner__picture picture-container picture-container_stretch"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture class="picture__content"><!----> <source type="image/webp" srcset="https://www.mentoday.ru/upload/img_cache/f57/f57d2f61aa11531a146dcbeff8d108f8_ce_3840x438x0x2_cropped_1920x220.webp 1x, https://www.mentoday.ru/upload/img_cache/f57/f57d2f61aa11531a146dcbeff8d108f8_ce_3840x438x0x2_cropped_3840x440.webp 2x"> <!----> <img width="1920" height="220" alt="" title="" draggable="false" crossorigin="anonymous" src="https://www.mentoday.ru/upload/img_cache/f57/f57d2f61aa11531a146dcbeff8d108f8_ce_3840x438x0x2_cropped_1920x220.jpg" srcset="https://www.mentoday.ru/upload/img_cache/f57/f57d2f61aa11531a146dcbeff8d108f8_ce_3840x438x0x2_cropped_1920x220.jpg 1x, https://www.mentoday.ru/upload/img_cache/f57/f57d2f61aa11531a146dcbeff8d108f8_ce_3840x438x0x2_cropped_3840x440.jpg 2x"></picture></figure> <div title="" class="picture-layer" style="padding-top: 11.4583%;"></div></div></div> <div class="wrap"><h1 class="section-banner__title"><div class="section-banner__title-inner"><span>
+    Всё про фитнес
+  </span></div></h1></div></div>
+
+  {% for p in posts %}
+<div class="preview-section__fullblock"><!----> <a href="{{p.get_absolute_url}}" class="preview-section__tile preview-section__tile_full wrap"><article class="article-tile article-tile_odd article-tile_pos_1 article-tile_depth_1 article-tile_block_section"><div data-v-0ff142ac="" class="article-tile__preview preview preview_type_simple"><div data-v-0ff142ac="" class="preview__picture picture-container picture-container_stretch"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture class="picture__content"><!----> <source media="(max-width: 499.9px)" type="image/webp" srcset="{{p.photo.url}} 1x, {{p.photo.url}} 2x"><source media="(min-width: 500px)" type="image/webp" srcset="{{p.photo.url}} 1x, {{p.photo.url}} 2x"> <source media="(max-width: 499.9px)" srcset="{{p.photo.url}} 1x, {{p.photo.url}} 2x"><source media="(min-width: 500px)" srcset="{{p.photo.url}} 1x, {{p.photo.url}} 2x"> <img width="650" height="650" alt="{{p.title}}" title="{{p.title}}" draggable="false" crossorigin="anonymous" src="{{p.photo.url}}" srcset="{{p.photo.url}} 1x, {{p.photo.url}} 2x"></picture></figure> <div title="" class="picture-layer" style="padding-top: 100%;"></div></div></div> <!----></div> <aside class="article-tile__content"><!----> <p class="article-tile__subtitle">
+      {{p.cat}}
+    </p> <header class="article-tile__title-wrapper"><div class="article-tile__title"><span>{{p.title}}</span></div></header> <div class="article-tile__author">Дата написания: {{p.time_create}}<br><br>{{p.author.last_name}} {{p.author.first_name}}</div> <section class="article-tile__text">{{p.description|truncatewords:28}}</section> <!----></aside></article></a> <!----> <!----></div>
+
+{% endfor %}
+
+
+
+{% endblock %}

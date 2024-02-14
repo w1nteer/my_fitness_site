@@ -1,0 +1,12 @@
+{% extends 'calorie_calculator/index.html' %}
+{% block results %}
+<div class="result-container">
+  <h2 class="result-title">Количество калорий:</h2>
+  <div class="result-content">
+    <div class="calories-wrapper">
+      <span class="calories-count">{{ calories }}</span>
+      <span class="calories-unit">Ккал</span>
+    </div>
+  </div>
+</div>
+{% endblock %}

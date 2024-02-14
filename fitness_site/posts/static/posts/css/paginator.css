@@ -1,0 +1,51 @@
+/* Стили для пагинатора */
+.list-pages {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.list-pages ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-pages li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-pages li a {
+  display: block;
+  padding: 0;
+  color: #007bff;
+  background-color: #fff;
+  text-decoration: none;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.list-pages li a:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.list-pages .page-num-selected {
+  background-color: #007bff;
+  color: #fff;
+  pointer-events: none;
+  cursor: default;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+}

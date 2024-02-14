@@ -1,0 +1,32 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <h1 class="krit">Участник конкурса "КРИТ-2024" Маминев Максим приветствует жюри конкурса!</h1>
+    <h1 class="custom-h1">Калькулятор калорий</h1>
+    <form method="post" class="form-inline">
+        {% csrf_token %}
+
+        <div class="form-error">{{ form.non_field_errors }}</div>
+
+        
+        {% for f in form %}   
+        <div class="form-group mb-3">
+        
+            <label for="{{f.id_for_label}}" class="form-label">{{f.label}}: </label>{{f}}
+            <div class="form-error">{{f.errors}}</div>
+        </div>
+
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-primary">Подсчитать</button>
+    
+    </form>
+
+    {% block results %}
+    {% endblock %}
+
+
+
+
+{% endblock %}

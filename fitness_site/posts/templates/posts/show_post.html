@@ -1,0 +1,107 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<div data-v-670ba17f="" class="detail-page__article"> <div data-v-670ba17f="" itemscope="itemscope" itemtype="http://schema.org/Article" id="article-1985365" class="article-detail-page article article--0"><div><link itemprop="mainEntityOfPage" href="https://www.mentoday.ru/fitness/training/uprajnenie-progulka-fermera-kak-ego-pravilno-vypolnyati-pochemu-stoit-vklyuchit-v-programmu/"> <div itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization"><div itemprop="logo" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="https://www.mentoday.ru/design/i/menshealth-logo-sm.png"> <meta itemprop="width" content="142"> <meta itemprop="height" content="26"></div> <meta itemprop="name" content="mentoday.ru"> <meta itemprop="legalName" content="ООО «Фэшн Пресс»"> <meta itemprop="telephone" content="+74952520999"> <meta itemprop="url" content="https://www.mentoday.ru"> <div itemprop="address" itemscope="itemscope" itemtype="https://schema.org/PostalAddress"><meta itemprop="streetAddress" content="Большой Саввинский переулок, д. 12, стр. 6, 2 этаж, Деловой Квартал «Московский шелк»"> <meta itemprop="postalCode" content="119435"> <meta itemprop="addressLocality" content="Москва"></div></div> </div> <div id="article-detail_1985365" itemprop="articleBody" class="article-detail article-detail_order_0 article-detail-with_vertical-video-recommendation"> <div class="article-detail__desc"><header class="article-detail__header"> <div data-v-fa46edbe="" class="article-detail__breadcrumbs breadcrumbs breadcrumbs_skin_grey"><div data-v-fa46edbe="" class="breadcrumbs__list"><div data-v-fa46edbe="" itemprop="articleSection" class="breadcrumbs__item"><a data-v-fa46edbe="" href="/fitness/" class="breadcrumbs__link nuxt-link-active">
+    Фитнес
+  </a></div><div data-v-fa46edbe="" itemprop="articleSection" class="breadcrumbs__item"><a data-v-fa46edbe="" href="/fitness/training/" class="breadcrumbs__link nuxt-link-active">
+    {{post.cat}}
+  </a></div></div> <div data-v-fa46edbe="" itemprop="datePublished dateModified" datetime="2023-06-19T09:32:00.000Z" class="breadcrumbs__date">
+{{post.time_create}}
+</div></div>  <h1 itemprop="headline" class="article-detail__title">{{post.title}}</h1>  <div class="article-detail__subtitle">{{post.description}}</div>  <div data-v-c7726334="" class="author-wrapper article-detail__author"><div data-v-c7726334="" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="author-article author-article_skin_grey"><a data-v-c7726334="" href="/author/rotach/" class="author-article__cnt --is-really" itemprop="url"><div data-v-c7726334="" class="picture picture-container picture-container_stretch picture-container_circle"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture itemscope="itemscope" itemtype="https://schema.org/ImageObject" class="picture__content"><meta itemprop="url" content="{{post.author.avatar.url}}"> <meta itemprop="width" content="50"> <meta itemprop="height" content="50"> <meta itemprop="representativeOfPage" content="1"> <source type="image/webp" srcset="{{post.author.avatar.url}} 1x, {{post.author.avatar.url}} 2x">  <img width="50" height="50" alt="{{post.author.first_name}}" title="" draggable="false" itemprop="image" crossorigin="anonymous" src="{{post.author.avatar.url}}" srcset="{{post.author.avatar.url}} 1x, {{post.author.avatar.url}} 2x"></picture></figure> <div title="" class="picture-layer" style="padding-top: 100%;"></div></div></div> <div data-v-c7726334="" class="author-info"><div data-v-c7726334="" field="name" itemprop="name" class="author-info__name">{{post.author.first_name}} {{post.author.last_name}}</div> <div data-v-c7726334="" field="description" itemprop="jobTitle" class="author-info__description"></div></div></a></div> </div> 
+  </a></div></div></div> </div></header> <div class="article-detail__image"><div class="picture-container picture-container_stretch"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture class="picture__content"> <source media="(max-width: 509.9px)" type="image/webp" srcset="{{post.photo.url}} 2x"><source media="(min-width: 510px)" type="image/webp" srcset="{{post.photo.url}} 1x, {{post.photo.url}} 2x"> <source media="(max-width: 509.9px)" srcset="{{post.photo.url}} 1x, {{post.photo.url}} 2x"><source media="(min-width: 510px)" srcset="{{post.photo.url}} 1x, {{post.photo.url}} 2x"> <img width="666" height="444" alt="{{post.title}}" title="{{post.title}}" draggable="false" crossorigin="anonymous" src="{{post.photo.url}}" srcset="{{post.photo.url}} 1x, {{post.photo.url}} 2x"></picture></figure> <div title="Упражнение «Прогулка фермера»: как его правильно выполнять и&amp;nbsp;почему стоит включить в&amp;nbsp;программу" class="picture-layer" style="padding-top: 66.6667%;"></div></div></div> </div><div class="article-detail__content"><div><div class="article-detail_tag_div"> <div class="article-element article-element_map"><div data-v-7c53ddb8="" class="article-map"><div data-v-7c53ddb8="" class="article-map__title">{{post.content|linebreaks}}</div> 
+  
+  <div class="separator"></div>
+  <br><br>
+  <h3 class="comments-title">Комментарии</h3>
+
+
+  <!-- Форма для создания комментария -->
+  {% if request.user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+  
+    {% for f in form %}
+      {{ f }}
+      <p>{{ f.errors }}</p>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Оставить комментарий</button>
+  </form>
+  {% else %}
+  <p style="color: red; font-style: italic;">Чтобы написать комментарий, нужно <a href="{% url 'login' %}">войти в аккаунт</a> или <a href="{% url 'register' %}">зарегистрироваться</a>.</p>
+{% endif %}
+<!--комментарии к посту-->
+
+<div class="comments">
+  {% for comment in comments %}
+    <div class="comment">
+      <div class="comment-details">
+        <div class="avatar-username">
+          <div class="comment-avatar">
+            <img src="{{ comment.user.avatar.url }}" alt="Аватар">
+          </div>
+          <p class="comment-username">{{ comment.user.first_name }} {{ comment.user.last_name }}</p>
+        </div>
+        <div class="comment-content">
+          <p>{{ comment.content }}</p>
+          <p class="comment-date">Время написания: {{ comment.created_at }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="no-comments">Комментариев пока нет. Напишите первым!</p>
+  {% endfor %}
+</div>
+
+  
+
+  <!--пагинация комментариев-->
+  <div class="pagination">
+    <span class="step-links">
+      {% if comments.has_previous %}
+      {% if comments.number > 2 %}
+        <a href="?page=1">&laquo; первая</a>
+        <a href="?page={{ comments.previous_page_number }}">{{ comments.previous_page_number }}</a>
+      {% else %}
+      <a href="?page=1">&laquo; первая</a>
+      {% endif %}
+      {% endif %}
+  
+      <span class="current-page">{{ comments.number }}</span>
+  
+      {% if comments.has_next %}
+      {% if comments.next_page_number != comments.paginator.num_pages %}
+        <a href="?page={{ comments.next_page_number }}">{{ comments.next_page_number }}</a>
+        <a href="?page={{ comments.paginator.num_pages }}">последняя &raquo;</a>
+      {% else %}
+      <a href="?page={{ comments.next_page_number }}">{{ comments.next_page_number }}</a>
+      {% endif %}
+      {% endif %}
+    </span>
+  </div>
+
+
+{% endblock %}
+<!--
+<div data-v-670ba17f="" class="detail-page__article"> <div data-v-670ba17f="" itemscope="itemscope" itemtype="http://schema.org/Article" id="article-1985365" class="article-detail-page article article--0"><div><link itemprop="mainEntityOfPage" href="https://www.mentoday.ru/fitness/training/uprajnenie-progulka-fermera-kak-ego-pravilno-vypolnyati-pochemu-stoit-vklyuchit-v-programmu/"> <div itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization"><div itemprop="logo" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="https://www.mentoday.ru/design/i/menshealth-logo-sm.png"> <meta itemprop="width" content="142"> <meta itemprop="height" content="26"></div> <meta itemprop="name" content="mentoday.ru"> <meta itemprop="legalName" content="ООО «Фэшн Пресс»"> <meta itemprop="telephone" content="+74952520999"> <meta itemprop="url" content="https://www.mentoday.ru"> <div itemprop="address" itemscope="itemscope" itemtype="https://schema.org/PostalAddress"><meta itemprop="streetAddress" content="Большой Саввинский переулок, д. 12, стр. 6, 2 этаж, Деловой Квартал «Московский шелк»"> <meta itemprop="postalCode" content="119435"> <meta itemprop="addressLocality" content="Москва"></div></div> </div> <div id="article-detail_1985365" itemprop="articleBody" class="article-detail article-detail_order_0 article-detail-with_vertical-video-recommendation"> <div class="article-detail__desc"><header class="article-detail__header"> <div data-v-fa46edbe="" class="article-detail__breadcrumbs breadcrumbs breadcrumbs_skin_grey"><div data-v-fa46edbe="" class="breadcrumbs__list"><div data-v-fa46edbe="" itemprop="articleSection" class="breadcrumbs__item"><a data-v-fa46edbe="" href="/fitness/" class="breadcrumbs__link nuxt-link-active">
+  Фитнес
+</a></div><div data-v-fa46edbe="" itemprop="articleSection" class="breadcrumbs__item"><a data-v-fa46edbe="" href="/fitness/training/" class="breadcrumbs__link nuxt-link-active">
+  {{post.cat }
+</a></div></div> <div data-v-fa46edbe="" itemprop="datePublished dateModified" datetime="2023-06-19T09:32:00.000Z" class="breadcrumbs__date">
+{{post.time_create}}
+</div></div> <-- <h1 itemprop="headline" class="article-detail__title">{{post.title}}</h1> <-> <div class="article-detail__subtitle">{{post.description}}</div>  <div data-v-c7726334="" class="author-wrapper article-detail__author"><div data-v-c7726334="" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="author-article author-article_skin_grey"><a data-v-c7726334="" href="/author/rotach/" class="author-article__cnt --is-really" itemprop="url"><div data-v-c7726334="" class="picture picture-container picture-container_stretch picture-container_circle"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture itemscope="itemscope" itemtype="https://schema.org/ImageObject" class="picture__content"><meta itemprop="url" content="https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_50x50.png"> <meta itemprop="width" content="50"> <meta itemprop="height" content="50"> <meta itemprop="representativeOfPage" content="1"> <source type="image/webp" srcset="https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_50x50.webp 1x, https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_100x100.webp 2x">  <img width="50" height="50" alt="Ирина Ротач" title="" draggable="false" itemprop="image" crossorigin="anonymous" src="https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_50x50.png" srcset="https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_50x50.png 1x, https://www.mentoday.ru/upload/img_cache/57d/57deaf61f9765192b4040793e87a5a86_cropped_100x100.png 2x"></picture></figure> <div title="" class="picture-layer" style="padding-top: 100%;"></div></div></div> <div data-v-c7726334="" class="author-info"><div data-v-c7726334="" field="name" itemprop="name" class="author-info__name">{{post.author.first_name}} {{post.author.last_name}}</div> <div data-v-c7726334="" field="description" itemprop="jobTitle" class="author-info__description">Эксперт по фитнесу и питанию</div></div></a></div> </div> 
+</a></div></div></div> <-></div></header> <div class="article-detail__image"><div class="picture-container picture-container_stretch"><div class="picture-container__wrapper picture-container__wrapper_defined_ratio"><figure class="picture"><picture class="picture__content"> <source media="(max-width: 509.9px)" type="image/webp" srcset="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_510x340.webp 1x, https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_1020x680.webp 2x"><source media="(min-width: 510px)" type="image/webp" srcset="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_666x444.webp 1x, https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_1332x888.webp 2x"> <source media="(max-width: 509.9px)" srcset="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_510x340.jpg 1x, https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_1020x680.jpg 2x"><source media="(min-width: 510px)" srcset="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_666x444.jpg 1x, https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_1332x888.jpg 2x"> <img width="666" height="444" alt="Упражнение «Прогулка фермера»: как его правильно выполнять и почему стоит включить в программу" title="Упражнение «Прогулка фермера»: как его правильно выполнять и почему стоит включить в программу" draggable="false" crossorigin="anonymous" src="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_666x444.jpg" srcset="https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_666x444.jpg 1x, https://www.mentoday.ru/upload/img_cache/41d/41d673ecfe9df57be4b9b8f67629a61f_ce_2000x1333x0x0_cropped_1332x888.jpg 2x"></picture></figure> <div title="Упражнение «Прогулка фермера»: как его правильно выполнять и&amp;nbsp;почему стоит включить в&amp;nbsp;программу" class="picture-layer" style="padding-top: 66.6667%;"></div></div></div> </div><div class="article-detail__content"><div><div class="article-detail_tag_div"> <div class="article-element article-element_map"><div data-v-7c53ddb8="" class="article-map"><div data-v-7c53ddb8="" class="article-map__title">Прогулка фермера с&nbsp;гантелями — это упражнение, которое уходит своими корнями в&nbsp;соревновательную силовую тренировку, но также популярно в&nbsp;кроссфите и&nbsp;функциональном тренинге. Оно может быть сложным завершающим этапом любого занятия, хорошо работать в&nbsp;круговой тренировке или в&nbsp;качестве дополнительного движения к&nbsp;тяжелым упражнениям, таким, как становая тяга.</div> <div data-v-7c53ddb8="" class="article-map__content"><div data-v-7c53ddb8="" class="article-map__subtitle">
+Содержание статьи
+</div> <nav data-v-7c53ddb8="" class="article-map-nav"><button data-v-7c53ddb8="" type="button" class="article-map__button article-map__button_parent"><span data-v-7c53ddb8="">1. Что такое&nbsp;«прогулка фермера»?</span></button> <button data-v-7c53ddb8="" type="button" class="article-map__button article-map__button_parent"><span data-v-7c53ddb8="">2. Техника выполнения упражнения</span></button> <button data-v-7c53ddb8="" type="button" class="article-map__button article-map__button_parent"><span data-v-7c53ddb8="">3. Видео выполнения упражнения</span></button> <button data-v-7c53ddb8="" type="button" class="article-map__button article-map__button_parent"><span data-v-7c53ddb8="">4. Рекомендации</span></button> </nav> <button data-v-7c53ddb8="" type="button" class="article-map-expand article-map-expand_expanded">
+Скрыть
+
+<svg data-v-7c53ddb8="" xmlns="http://www.w3.org/2000/svg" class="article-map-expand__icon icon sprite-icons"><use data-v-7c53ddb8="" href="/_nuxt/088e724f774203f1ee114aea078cc900.svg#i-arrow-down" xlink:href="/_nuxt/088e724f774203f1ee114aea078cc900.svg#i-arrow-down"></use></svg></button></div></div></div> </div><div class="article-detail_tag_h2"> <h2 id="a1985365_c0" class="article-element">Что такое&nbsp;«прогулка фермера»?</h2> </div><article class="article-detail_tag_p"> <p class="article-element article-element_first_big_letter_sm">Упражнение «прогулка фермера» (англ. «farmer's walk») — это комплексное движение, которое включает в&nbsp;себя поднятие и&nbsp;перенос тяжестей на&nbsp;расстояния разной длины. Является очень физиологичным для&nbsp;спортсмена и&nbsp;задействует огромное количество мышечных групп, включая мышцы рук, спины, ног и&nbsp;корпуса.</p> 
+                      
+                  
+                  
+</span> </div> <-></div><article class="article-detail_tag_p"> <p class="article-element">Преимущества упражнения</p> </article><article class="article-detail_tag_p"> <p class="article-element">Основная цель упражнения — укрепление мышц, улучшение выносливости и&nbsp;координации движений. А также преимущества этого упражнения включают:</p> </article><div class="article-detail_tag_ol"> <ol class="article-element"><li>Укрепление мышц рук и&nbsp;предплечий<br>
+Поднятие и&nbsp;перенос тяжестей на&nbsp;расстояние требует от&nbsp;мышц рук и&nbsp;предплечий огромного напряжения. В&nbsp;результате, происходит укрепление данных мышечных групп, что позволяет лучше контролировать движения рук и&nbsp;повысить их выносливость.</li> <li>Развитие мышц спины и&nbsp;ягодиц<br>
+Во время выполнения упражнения мышцы спины и&nbsp;ягодиц работают наравне с&nbsp;мышцами рук и&nbsp;ног. В&nbsp;результате, данные мышечные группы укрепляются и&nbsp;развиваются, что в&nbsp;свою очередь улучшается осанка и&nbsp;повышается уровень силы и&nbsp;выносливости.</li> <li>Укрепление мышц корпуса<br>
+Упражнение требует от&nbsp;тела правильной позы и&nbsp;уверенности в&nbsp;движениях. Это позволяет укрепить мышцы корпуса и&nbsp;улучшить координацию движений.</li> <li>Повышение выносливости<br>
+{ % endblock %  }
+-->

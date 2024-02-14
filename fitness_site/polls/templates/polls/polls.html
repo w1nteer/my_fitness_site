@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+{% if poll %}
+<p>Спасибо за то, что проголосовали!</p>
+{% endif %}
+
+{% if voted %}
+<p>Вы уже проголосовали и не можете голосовать второй раз за один и тот же вариант.</p>
+{% endif %}
+
+{% for question in questions %}
+  <h2>{{ question.question_text }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question.id }}">
+    {% for choice in question.choice_set.all %}
+      <input type="radio" name="choice_id" value="{{ choice.id }}">
+      {{ choice.choice_text }} ({{ choice.votes }})
+      <br>
+    {% endfor %}
+    <input type="submit" value="Проголосовать">
+  </form>
+{% endfor %}
+
+{% endblock %}
